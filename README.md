@@ -12,7 +12,11 @@ Study SQL and connect JAVA-SQL(Oracle) using JDBC
 -------------------------------------------
 ### JAVA
 #### JDBC API를 이용해 Oracle Database와 연결하기
->JDBC    
+>JDBC : 데이터베이스를 이용한 회원관리(회원가입, 로그인)
+>> dao    
+>> dto   
+>> view    
+>> jdbc : jdbc 연습
 ----------------------------------
 #### JDBC( Java DataBase Connectivity)
 
