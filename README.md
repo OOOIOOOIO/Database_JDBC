@@ -31,8 +31,8 @@ JDBC API를 이용하기 위해선프로젝트 buildpath 에서 ojdbc6.jar을 �
 
 ### < 순서 >
 
-1. 필드에
-
+#### 1.
+  필드에
  Connection conn, PreparedStatement ps, ResultSet rs을 선언 (ex)Connection conn = null;)
  
  URL, userID, userPw를 변수에 담는다. (--> try문 안에 들어가도 된다.)
@@ -52,7 +52,7 @@ cathch
 
 묶어준다.
 
-2. 
+#### 2. 
  JAVA에서 DB에 연결을 하였으면 이제 데이터베이스에서 테이블을 생성하여야 한다.
 데이터베이스에서 테이블을 만들고 데이터를 삽입하는 작업을 거쳐야한다.(DB에서 기본으로 제공하는 
 TABlE은 바로 SELECT으로 가져올 수 있다.)
@@ -73,6 +73,8 @@ rs.getInt(컬렴순서 혹은 컬럼명), String(),.. 등으로 rs.next가 가�
 
  이렇게 대충 JDBC API를 어떻게 이용하는지 알아보았다.
  
+--------------------------------------------------------
+#### JDBC 실습 코드 
 
 	package jdbc;      
 	import java.sql.Connection;     
