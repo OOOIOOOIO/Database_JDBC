@@ -61,10 +61,11 @@ TABlE은 바로 SELECT으로 가져올 수 있다.)
 ps = conn.preparedStatement(SQL QUERY) 를 통해 전달 준비를 하고
 
 rs = ps.excuteQuery() 를 통해 DB로 SQL문을 전달시킨다.
-여기서 ps.excuteQuery()는 SQL문이 SELECT문일 때 사용하고 INSERT, UPDATE, DELETE는 ps.excuteUpdate()를 사용한다.
-만약 SQL문이 INSERT, UPDATE, DELETE와 같을 경우 "INSERT INTO UMS_USER VALUES(?,?,?,?,?,?)" ? 식으로 되어 있을 텐데
-"?" 는 ps.setString(순서, 넣을값),Int(),..으로 넣어준 후 ps.excuteUpdate()를 실행한다.
+여기서 ps.excuteQuery() SQL문이 SELECT문일 때 사용하고 
+INSERT, UPDATE, DELETE는 ps.excuteUpdate()를 사용한다.    
 
+ 만약 SQL문이 INSERT, UPDATE, DELETE와 같을 경우 "INSERT INTO UMS_USER VALUES(?,?,?,?,?,?)" ? 식으로 되어 있을 텐데
+"?" 는 ps.setString(순서, 넣을값),Int(),..으로 넣어준 후 ps.excuteUpdate()를 실행한다.
 SELECT문도 만약 ?가 있을 경우 ps.setString(),Int,...로 넣어준 후 ps.excuteQuery()를 실행한다.
 
  이후 rs.next로 데이터가 옳바르게 검색되었는지 확인을 한다.
