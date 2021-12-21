@@ -102,8 +102,8 @@ rs.getInt(컬렴순서 혹은 컬럼명), String(),.. 등으로 rs.next가 가�
 
 			//연결할 데이터베이스 URL(목적지) "jdbc:oracle:thin:@HOST:PORT:SID";
 			String url = "jdbc:oracle:thin:@localhost:1521:XE";
-			String user = "web";
-			String password = "web";
+			String user = "~~~";
+			String password = "~~~";
 
 			// 설계도 준비 Class.forName(불러올 JDBC드라이버 이름)
 			try {
