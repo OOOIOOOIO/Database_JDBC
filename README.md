@@ -100,8 +100,8 @@ public class JDBCTEsst {
 		ResultSet rs = null;
 
 
-		//연결할 데이터베이스 URL(목적지) "jdbc:oracle:thin:@HOST:PORT:SID";
-		String url = "jdbc:oracle:thin:@localhost:1521:XE";
+		//연결할 데이터베이스 URL(목적지) "jdbc:oracle:thin:@HOST:PORT:SID" 형식
+		String url = "~~~";
 		String user = "~~~";
 		String password = "~~~";
 
