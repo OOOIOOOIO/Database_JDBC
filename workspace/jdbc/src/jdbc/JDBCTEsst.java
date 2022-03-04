@@ -1,5 +1,5 @@
 package jdbc;
-// ÇÁ·ÎÁ§Æ® Build Path¿¡¼­ ojdbc6.jarÀ» Ãß°¡ÇØ¾ßÇÑ´Ù.
+// í”„ë¡œì íŠ¸ Build Pathì—ì„œ ojdbc6.jarì„ ì¶”ê°€í•´ì•¼í•œë‹¤.
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,56 +8,56 @@ import java.sql.SQLException;
 
 public class JDBCTEsst {
 	public static void main(String[] args) {
-		// ´Ù¸®
+		// ë‹¤ë¦¬
 		Connection conn = null;
-		// ÅÃ¹èÂ÷
+		// íƒë°°ì°¨
 		PreparedStatement ps = null;
-		// SELECT¹®À¸·Î ¹ŞÀº Å×ÀÌºí °á°ú(Ã¢°í°°Àº ´À³¦)
+		// SELECTë¬¸ìœ¼ë¡œ ë°›ì€ í…Œì´ë¸” ê²°ê³¼(ì°½ê³ ê°™ì€ ëŠë‚Œ)
 		ResultSet rs = null;
 		
 		
-		//¿¬°áÇÒ µ¥ÀÌÅÍº£ÀÌ½º URL(¸ñÀûÁö) "jdbc:oracle:thin:@HOST:PORT:SID";
-		String url = "jdbc:oracle:thin:@localhost:1521:XE";
-		String user = "web";
-		String password = "web";
+		//ì—°ê²°í•  ë°ì´í„°ë² ì´ìŠ¤ URL(ëª©ì ì§€) "jdbc:oracle:thin:@HOST:PORT:SID" í˜•ì‹
+		String url = "~~";
+		String user = "~~~";
+		String password = "~~~";
 		
-		// ¼³°èµµ ÁØºñ Class.forName(ºÒ·¯¿Ã JDBCµå¶óÀÌ¹ö ÀÌ¸§)
+		// ì„¤ê³„ë„ ì¤€ë¹„ Class.forName(ë¶ˆëŸ¬ì˜¬ JDBCë“œë¼ì´ë²„ ì´ë¦„)
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			// ´Ù¸® °Ç¼³
+			// ë‹¤ë¦¬ ê±´ì„¤
 			conn = DriverManager.getConnection(url, user, password);
-			System.out.println("¿¬°á ¼º°ø");
+			System.out.println("ì—°ê²° ì„±ê³µ");
 		} catch (ClassNotFoundException e) {
-			System.out.println("µå¶óÀÌ¹ö ÁØºñ ½ÇÆĞ!"); // µå¶óÀÌ¹ö¿¡ ¿¬°á¿¡ ½ÇÆĞÇÒ ¶§
+			System.out.println("ë“œë¼ì´ë²„ ì¤€ë¹„ ì‹¤íŒ¨!"); // ë“œë¼ì´ë²„ì— ì—°ê²°ì— ì‹¤íŒ¨í•  ë•Œ
 		} catch(SQLException sqle) {
-			System.out.println("¿¬°á ½ÇÆĞ!" + sqle); // DB °èÁ¤ÀÌ ºÒÀÏÄ¡ ÇÒ ¶§
+			System.out.println("ì—°ê²° ì‹¤íŒ¨!" + sqle); // DB ê³„ì •ì´ ë¶ˆì¼ì¹˜ í•  ë•Œ
 		}
 		
-		// ¿¬°áÀÌ Á¤»óÁ¤À¸·Î ¼º°øÇßÀ» ¶§
+		// ì—°ê²°ì´ ì •ìƒì •ìœ¼ë¡œ ì„±ê³µí–ˆì„ ë•Œ
 		if(conn != null) {
 			String sql = "SELECT SYSDATE FROM DUAL";
 			
 			try {
-				// ÅÃ¹èÂ÷ »ı¼º(¸¸µé¾îÁø conn(´Ù¸®)¸¦ ÀÌ¿ëÇÏ´Â ÅÃ¹èÂ÷(ps)
+				// íƒë°°ì°¨ ìƒì„±(ë§Œë“¤ì–´ì§„ conn(ë‹¤ë¦¬)ë¥¼ ì´ìš©í•˜ëŠ” íƒë°°ì°¨(ps)
 				ps = conn.prepareStatement(sql);
 				
-				// Àü´ŞÇØÁØ sql¹® ¼öÇà½ÃÅ°±â
+				// ì „ë‹¬í•´ì¤€ sqlë¬¸ ìˆ˜í–‰ì‹œí‚¤ê¸°
 				rs = ps.executeQuery();
 				
-				// next() : ´ÙÀ½ ÇàÀÌ ÀÖ´ÂÁö ÀÖÀ¸¸é T. return type -> boolean
-				// get~~ --> return type¿¡ µû¶ó ´Ş¶óÁü 
-				// getSting(ÄÃ·³¹øÈ£) : ÄÃ·³ Ãâ·Â
-				// getString("ÄÃ·³¸í") : ÄÃ·³ ÀüÃ¼ Ãâ·Â(while¹®°ú °°ÀÌ ¾²ÀÓ)
-				// getInt("ÄÃ·³¸í") : 
+				// next() : ë‹¤ìŒ í–‰ì´ ìˆëŠ”ì§€ ìˆìœ¼ë©´ T. return type -> boolean
+				// get~~ --> return typeì— ë”°ë¼ ë‹¬ë¼ì§ 
+				// getSting(ì»¬ëŸ¼ë²ˆí˜¸) : ì»¬ëŸ¼ ì¶œë ¥
+				// getString("ì»¬ëŸ¼ëª…") : ì»¬ëŸ¼ ì „ì²´ ì¶œë ¥(whileë¬¸ê³¼ ê°™ì´ ì“°ì„)
+				// getInt("ì»¬ëŸ¼ëª…") : 
 				if(rs.next()) {
 					System.out.println(rs.getString(1));
 				} 
 				else {
-					System.out.println("°Ë»ö°á°ú ¾øÀ½");
+					System.out.println("ê²€ìƒ‰ê²°ê³¼ ì—†ìŒ");
 				}
 				
 			} catch (SQLException sqle) {
-				System.out.println("½ÇÆĞ !" + sqle);
+				System.out.println("ì‹¤íŒ¨ !" + sqle);
 			}
 		}
 		
